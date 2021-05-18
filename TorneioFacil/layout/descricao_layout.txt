@@ -1,2 +1,2 @@
 layout é a pasta que contém o layout “cru”, pronto para ser desmontado em html e jogado na programação. 
-Contém também os arquivos de edição originais, exemplo arquivos de photoshop.
+ Contém também os arquivos de edição originais, exemplo arquivos de photoshop.

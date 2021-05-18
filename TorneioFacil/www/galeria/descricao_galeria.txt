@@ -1,2 +1,2 @@
 www/galeria – fotos dos itens do sistema. Exemplo: numa loja virtual, há as fotos dos produtos, 
-então dentro da galeria tem mais uma pasta chamada produtos que por sua vez contém as fotos dos produtos.
+então dentro da galeria tem mais uma pasta chamada produtos que por sua vez contém as fotos dos produtos. 
