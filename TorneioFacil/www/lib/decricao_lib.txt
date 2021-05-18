@@ -1,0 +1,1 @@
+www/lib – todas as classes de framework e funcionalidades em geral ficam aqui armazenadas. 
