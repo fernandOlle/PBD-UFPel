@@ -17,10 +17,6 @@
 
   $stmt = $pdo->query('SELECT * FROM test');
 
-  while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-    echo $row['hello_world'] . '<br>';
-  }
-
   while($row = $stmt->fetch()){
     echo $row->hello_world . '<br>';
   }
