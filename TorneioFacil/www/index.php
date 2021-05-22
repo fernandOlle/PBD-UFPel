@@ -4,8 +4,7 @@
   $user = 'root';
   $password = 'toor';
   $dbname = 'base_torneiofacil';
-  // eu sei que pdb é estranho
-
+  
   // Set DSN
   $dsn = 'mysql:host='. $host .';port=3306;'.'dbname='. $dbname;
 
