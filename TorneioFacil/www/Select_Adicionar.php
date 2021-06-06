@@ -7,49 +7,57 @@ if( isset($_POST['Testando']) ){
 
     switch($resultado){
         case "1":
-            header('Location: ./Select-Adicionar-PHP/Adicionar_Torneio.php');
+            header('Location: ./Select-Adicionar-PHP/Torneio.php');
         break;
     
         case "2":
+            header('Location: ./Select-Adicionar-PHP/Patrocinador.php');
         break;
     
         case "3":
+            header('Location: ./Select-Adicionar-PHP/Organizador.php');
         break;
         
         case "4":
+            header('Location: ./Select-Adicionar-PHP/Dias.php');
         break;
     
         case "5":
+            header('Location: ./Select-Adicionar-PHP/Ingresso.php');
         break;
             
         case "6":
+            header('Location: ./Select-Adicionar-PHP/PatrocinadorMaterial.php');
         break;
     
         case "7":
+            header('Location: ./Select-Adicionar-PHP/Designado_alugadoemprestado.php');
         break;
         
         case "8":
+            header('Location: ./Select-Adicionar-PHP/Times.php');
         break;
         
         case "9":
+            header('Location: ./Select-Adicionar-PHP/Integrante.php');
         break;
             
         case "10":
+            header('Location: ./Select-Adicionar-PHP/Designado_comprado.php');
         break;
         
         case "11":
+            header('Location: ./Select-Adicionar-PHP/AlugadoEmprestado.php');
         break;
                 
         case "12":
+            header('Location: ./Select-Adicionar-PHP/Comprado.php');
         break; 
         
         case "13":
-        break;
-                    
-        case "14":
-        break;      
+            header('Location: ./Select-Adicionar-PHP/Participa.php');
+        break;   
     }
-
 
 }else{
     $resultado = 0;
@@ -69,7 +77,7 @@ if( isset($_POST['Testando']) ){
     <title>Cadastrar</title>
 </head>
 <body>
-
+<a href="../index.php">Voltar para o inicio</a>
 <form method="POST" action="Select_Adicionar.php">
   <select class="form-select" aria-label="Default select example" name="Testando">
     <option selected>Selecione um banco para adicionar</option>
@@ -79,20 +87,18 @@ if( isset($_POST['Testando']) ){
     <option value="4">Dias</option>
     <option value="5">Ingresso</option>
     <option value="6">PatrocinadorMaterial</option>
-    <option value="7">Equipamento</option>
+    <option value="7">Designado_alugadoemprestado</option>
     <option value="8">Times</option>
     <option value="9">Integrante</option>
-    <option value="10">IntegrantesTime</option>
-    <option value="11">Designado</option>
-    <option value="12">AlugadoEmprestado</option>
-    <option value="13">Comprado</option>
-    <option value="14">Participa</option>
+    <option value="10">Designado_comprado</option>
+    <option value="11">AlugadoEmprestado</option>
+    <option value="12">Comprado</option>
+    <option value="13">Participa</option>
 
   </select>
 
 <!-- botão -->
 <input type="submit" class="btn btn-outline-primary" id="exampleFormControlInput1" value="Enviar">
 </form>
-
 </body>
 </html>
