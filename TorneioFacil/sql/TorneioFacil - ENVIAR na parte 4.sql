@@ -18,7 +18,7 @@ create table patrocinador (
 	id_patrocinio serial not null, 
 	cpf varchar(11) not null, 
 	nome varchar(30) not null, 
-	contribuiçao int not null, 
+	contribuicao int not null, 
 	id_torneio bigint unsigned
 );
 
@@ -163,7 +163,7 @@ INSERT INTO participa  VALUES (1, 1);
 alter table participa add foreign key (id_dias) references dias (id_dias) ON DELETE SET NULL ON UPDATE CASCADE;
 alter table participa add foreign key (id_time) references ttimes (id_time) ON DELETE SET NULL ON UPDATE CASCADE;
 
-/* --Começar a adicionar os dados */
+/* --Comecar a adicionar os dados */
 
 INSERT INTO patrocinador VALUES (2, '22222222222', 'Roberto', 3000, 1);
 INSERT INTO patrocinador VALUES (3, '33333333333', 'Roberta', 4000, 1);
@@ -173,7 +173,7 @@ INSERT INTO organizador VALUES ('66666666666', 'Jesse', 222222222, 'ex2@gmail.co
 INSERT INTO organizador VALUES ('77777777777', 'Cris', 333333333, 'ex3@gmail.com', 1);
 INSERT INTO organizador VALUES ('88888888888', 'Alberto', 444444444, 'ex4@gmail.com', 1);
 
-INSERT INTO dias VALUES (2, '2010-10-20', '04:10', 1);
+INSERT INTO dias VALUES (2, '2010-10-21', '04:10', 1);
 INSERT INTO dias VALUES (3, '2010-10-22', '04:00', 1);
 INSERT INTO dias VALUES (4, '2010-10-23', '03:00', 1);
 
@@ -263,7 +263,7 @@ select nome_time, dt_ini, hr_ini FROM dias INNER JOIN participa ON participa.id_
 select tipo, dt_ini, valor FROM dias JOIN designado_comprado ON dias.id_dias = designado_comprado.id_dias JOIN comprado ON comprado.id_equipamento = designado_comprado.id_equipamento_comprado ORDER BY dt_ini ASC;
 
 /* -- busca todos os patrocinadores que deram dinheiro */
-select cpf, nome, contribuiçao from patrocinador  ORDER BY contribuiçao;
+select cpf, nome, contribuicao from patrocinador  ORDER BY contribuicao;
 
 /* -- busca os dados de ingresso */
 select valor, nmr_assento, cpf, id_ingresso, id_dias from ingresso;

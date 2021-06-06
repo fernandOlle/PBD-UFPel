@@ -43,7 +43,7 @@
         echo "<script>alert('ID de torneio não encontrado');</script>";
     }else{
         //Se achou ele adiciona
-        $query_patrocinador = "INSERT INTO patrocinador (cpf, nome, contribuiçao, id_torneio ) VALUES ('$cpf', '$nome', '$contribuicao', '$id_torneio')";
+        $query_patrocinador = "INSERT INTO patrocinador (cpf, nome, contribuicao, id_torneio ) VALUES ('$cpf', '$nome', '$contribuicao', '$id_torneio')";
         $cad_patrocinador = $pdo->prepare($query_patrocinador);
         $cad_patrocinador->execute();
         if( $cad_patrocinador->rowCount() ){

@@ -15,7 +15,7 @@
     <h1>Listar Patrocinador</h1>
 
 <?php
-    $query_usuarios = "SELECT id_patrocinio, cpf, nome, contribuiçao, id_torneio FROM patrocinador";
+    $query_usuarios = "SELECT id_patrocinio, cpf, nome, contribuicao, id_torneio FROM patrocinador";
     $resultado_usuarios = $pdo->prepare($query_usuarios);
     $resultado_usuarios->execute();
 
@@ -23,7 +23,7 @@
         while($row_usuários = $resultado_usuarios->fetch( PDO:: FETCH_ASSOC )){
             //vardump($row_usuários);
             extract($row_usuários);
-            echo "ID: " . $id_patrocinio . "<br>CPF: " . $cpf . "<br>Nome: " . $nome . "<br>Quantidade da contribuição: " . $contribuiçao . "<br>ID do torneio:" . $id_torneio . "<br> <hr>";
+            echo "ID: " . $id_patrocinio . "<br>CPF: " . $cpf . "<br>Nome: " . $nome . "<br>Quantidade da contribuição: " . $contribuicao . "<br>ID do torneio:" . $id_torneio . "<br> <hr>";
         }
       
     } else{
