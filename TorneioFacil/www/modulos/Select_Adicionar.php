@@ -7,55 +7,55 @@ if( isset($_POST['Testando']) ){
 
     switch($resultado){
         case "1":
-            header('Location: ./Select-Apagar-PHP/Torneio.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Torneio.php');
         break;
     
         case "2":
-            header('Location: ./Select-Apagar-PHP/Patrocinador.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Patrocinador.php');
         break;
     
         case "3":
-            header('Location: ./Select-Apagar-PHP/Organizador.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Organizador.php');
         break;
         
         case "4":
-            header('Location: ./Select-Apagar-PHP/Dias.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Dias.php');
         break;
     
         case "5":
-            header('Location: ./Select-Apagar-PHP/Ingresso.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Ingresso.php');
         break;
             
         case "6":
-            header('Location: ./Select-Apagar-PHP/PatrocinadorMaterial.php');
+            header('Location: ../lib/Select-Adicionar-PHP/PatrocinadorMaterial.php');
         break;
     
         case "7":
-            header('Location: ./Select-Apagar-PHP/Designado_alugadoemprestado.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Designado_alugadoemprestado.php');
         break;
         
         case "8":
-            header('Location: ./Select-Apagar-PHP/Times.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Times.php');
         break;
         
         case "9":
-            header('Location: ./Select-Apagar-PHP/Integrante.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Integrante.php');
         break;
             
         case "10":
-            header('Location: ./Select-Apagar-PHP/Designado_comprado.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Designado_comprado.php');
         break;
         
         case "11":
-            header('Location: ./Select-Apagar-PHP/AlugadoEmprestado.php');
+            header('Location: ../lib/Select-Adicionar-PHP/AlugadoEmprestado.php');
         break;
                 
         case "12":
-            header('Location: ./Select-Apagar-PHP/Comprado.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Comprado.php');
         break; 
         
         case "13":
-            header('Location: ./Select-Apagar-PHP/Participa.php');
+            header('Location: ../lib/Select-Adicionar-PHP/Participa.php');
         break;   
     }
 
@@ -78,22 +78,22 @@ if( isset($_POST['Testando']) ){
 </head>
 <body>
 <a href="../index.php">Voltar para o inicio</a>
-<form method="POST" action="Select_Apagar.php">
+<form method="POST" action="Select_Adicionar.php">
   <select class="form-select" aria-label="Default select example" name="Testando">
-    <option selected>Selecione um banco para Apagar</option>
+    <option selected>Selecione um banco para adicionar</option>
     <option value="1">Torneio</option>
     <option value="2">Patrocinador</option>
     <option value="3">Organizador</option>
     <option value="4">Dias</option>
     <option value="5">Ingresso</option>
     <option value="6">PatrocinadorMaterial</option>
-    <option value="97">??? - Designado_alugadoemprestado</option>
+    <option value="7">Designado_alugadoemprestado</option>
     <option value="8">Times</option>
     <option value="9">Integrante</option>
-    <option value="99">??? - Designado_comprado</option>
+    <option value="10">Designado_comprado</option>
     <option value="11">AlugadoEmprestado</option>
     <option value="12">Comprado</option>
-    <option value="98">??? - Participa</option>
+    <option value="13">Participa</option>
 
   </select>
 

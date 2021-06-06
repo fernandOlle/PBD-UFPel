@@ -1,5 +1,5 @@
 <?php
-    include("../Conexao.php");
+    include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <title>Cadastrar Alugado/Emprestado</title>
 </head>
 <body>
-    <a href="../index.php">Voltar para o inicio</a>
+    <a href="../../index.php">Voltar para o inicio</a>
     <h1>Cadastrar Alugado/Emprestado</h1>
     <form method="POST" action="alugadoemprestado.php">
     <input type="text" name="tipo" id="nome" placeholder="Digite o tipo de matérial/objeto" required><br><br>
