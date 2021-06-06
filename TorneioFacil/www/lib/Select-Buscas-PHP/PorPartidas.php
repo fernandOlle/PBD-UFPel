@@ -32,7 +32,6 @@
     }else{
         echo "<script>alert('Erro: Nenhum dado encontrado!');</script>";
     }
-}
 
 ?>
 

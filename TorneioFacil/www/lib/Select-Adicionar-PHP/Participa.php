@@ -47,14 +47,14 @@
         $query_participa = "INSERT INTO participa (id_dias, id_time) VALUES ('$id_dias', '$id_time')";
         $cad_participa = $pdo->prepare($query_participa);
         $cad_participa->execute();
+        if( $cad_participa->rowCount() ){
+            //se conseguiu cadastrar
+            echo "<script>alert('Participa cadastrado!');</script>";
+        }else{
+            echo "<script>alert('Erro: Participa não cadastrado!');</script>";
+        }
     }
 
-    if( $cad_participa->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Participa cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Participa não cadastrado!');</script>";
-    }
 
     }
 ?>

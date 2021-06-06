@@ -33,7 +33,7 @@
     $email = $_POST["email"];
     $id_time = $_POST["id_time"];
 
-    $buscar_id = "SELECT * from times where id_time = '$id_time' ";
+    $buscar_id = "SELECT * from ttimes where id_time = '$id_time' ";
     $verificar_busca = $pdo->prepare($buscar_id);
     $verificar_busca->execute();
     $numRegistros = $verificar_busca->fetch(PDO::FETCH_ASSOC);
@@ -41,19 +41,19 @@
     if( $numRegistros == 0){
         //Se não achou no banco de dados o ID do time fornecido
         echo "<script>alert('ID de time não encontrado');</script>";
-    else{
+    }else{
         //Se achou ele adiciona
-        $query_Integrante = "INSERT INTO integrante (cpf, nome , email, id_time ) VALUES ('$cpf', '$nome', '$telefone', '$email', '$id_time')";
+        $query_Integrante = "INSERT INTO integrante (cpf, nome , email, id_time ) VALUES ('$cpf', '$nome', '$email', '$id_time')";
         $cad_Integrante = $pdo->prepare($query_Integrante);
         $cad_Integrante->execute();
+        if( $cad_Integrante->rowCount() ){
+            //se conseguiu cadastrar
+            echo "<script>alert('Integrante cadastrado!');</script>";
+        }else{
+            echo "<script>alert('Erro: Integrante não cadastrado!');</script>";
+        }
     }
 
-    if( $cad_Integrante->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Integrante cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Integrante não cadastrado!');</script>";
-    }
 
     }
 ?>

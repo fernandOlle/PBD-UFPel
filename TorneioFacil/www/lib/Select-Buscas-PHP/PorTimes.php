@@ -28,18 +28,21 @@ if( !empty( $_POST["id"])  ){
     $id = $_POST["id"] + 0;
     // + 0 força ele p converter a int
 
-    $query_resultado = "SELECT nome, email, cpf, integrante.id_time from integrante INNER JOIN participa ON integrante.id_time = participa.id_time and participa.id_time = $id ";
+    $query_resultado = "SELECT nome, email, cpf, integrante.id_time FROM integrante INNER JOIN ttimes ON integrante.id_time = ttimes.id_time and ttimes.id_time = $id";
     $resultado = $pdo->prepare($query_resultado);
     $resultado->execute();
 
     if( ($resultado) AND ($resultado->rowCount() != 0) ){
-
+        $i = 0;
         //faz a busca pela coluna
-        $row_usuários = $resultado->fetch(PDO::FETCH_ASSOC);
         
+        while(   ($row_users = $resultado->fetch(PDO::FETCH_BOTH) ) && ($i < $resultado->rowCount()) ){
         //facilita na hora de printar os dados
-        extract($row_usuários);
-        echo "Nome: " . $nome . "<br>Email: " . $email . "<br>cpf: " . $cpf . "<br>ID do time: " . $integrante.id_time . "<br> <hr>";
+        $i+=1;
+        extract($row_users);
+        //foreach($row_users as $jogadores){
+            echo "Nome: " . $row_users["nome"] . "<br>Email: " . $row_users["email"] . "<br>cpf: " . $row_users["cpf"] . "<br>ID do time: " . $row_users["id_time"] . "<br> <hr>";
+        }
     }else{
         echo "<script>alert('Erro: Nenhum dado encontrado!');</script>";
     }
