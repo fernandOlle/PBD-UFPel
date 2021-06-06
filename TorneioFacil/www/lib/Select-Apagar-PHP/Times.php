@@ -30,12 +30,12 @@ if( isset($_POST['BotaoEnviar']) ){
     $id = $_POST["id"] + 0;
     // + 0 força ele p converter a int
 
-    $query_resultado = "SELECT * FROM time WHERE id_time = $id LIMIT 1";
+    $query_resultado = "SELECT * FROM ttimes WHERE id_time = $id LIMIT 1";
     $resultado = $pdo->prepare($query_resultado);
     $resultado->execute();
 
     if( ($resultado) AND ($resultado->rowCount() != 0) ){
-    $remover = "DELETE FROM time WHERE  id_time = $id";
+    $remover = "DELETE FROM ttimes WHERE  id_time = $id";
     $apagar = $pdo->prepare($remover);
 
     if( $apagar->execute() ){

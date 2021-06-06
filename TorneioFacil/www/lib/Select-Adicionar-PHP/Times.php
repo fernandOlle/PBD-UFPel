@@ -46,7 +46,7 @@
         echo "<script>alert('ID de torneio não encontrado');</script>";
     }else{
         //Se achou ele adiciona
-        $query_times = "INSERT INTO times (nmr_integrantes, nome_time, total_partidas, rodadaatual, eliminado, id_torneio) VALUES ('$nmr_integrantes', '$nome_time' '$total_partidas', '$rodadaatual', '$eliminado', '$id_torneio')";
+        $query_times = "INSERT INTO ttimes (nmr_integrantes, nome_time, total_partidas, rodadaatual, eliminado, id_torneio) VALUES ('$nmr_integrantes', '$nome_time' '$total_partidas', '$rodadaatual', '$eliminado', '$id_torneio')";
         $cad_times = $pdo->prepare($query_times);
         $cad_times->execute();
     }
