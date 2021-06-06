@@ -41,19 +41,19 @@
     if( $numRegistros == 0 || $numRegistros2 == 0 ){
         //Se não achou no banco de dados algum dos 2 dados
         echo "<script>alert('Algum dado não foi encontrado');</script>";
-    else{
+    }else{
         //Se achou ele adiciona
         $query_Designadocomprado = "INSERT INTO designado_comprado (id_dias, id_equipamento_comprado) VALUES ('$id_dias', '$id_equipamento_comprado')";
         $cad_Designadocomprado = $pdo->prepare($query_Designadocomprado);
         $cad_Designadocomprado->execute();
+        if( $cad_Designadocomprado->rowCount() ){
+            //se conseguiu cadastrar
+            echo "<script>alert('Designado comprado cadastrado!');</script>";
+        }else{
+            echo "<script>alert('Erro: Designado comprado não cadastrado!');</script>";
+        }
     }
 
-    if( $cad_Designadocomprado->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Designado comprado cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Designado comprado não cadastrado!');</script>";
-    }
 
     }
 ?>

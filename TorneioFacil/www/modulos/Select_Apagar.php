@@ -29,10 +29,6 @@ if( isset($_POST['Testando']) ){
         case "6":
             header('Location: ../lib/Select-Apagar-PHP/PatrocinadorMaterial.php');
         break;
-    
-        case "7":
-            header('Location: ../lib/Select-Apagar-PHP/Designado_alugadoemprestado.php');
-        break;
         
         case "8":
             header('Location: ../lib/Select-Apagar-PHP/Times.php');
@@ -41,10 +37,6 @@ if( isset($_POST['Testando']) ){
         case "9":
             header('Location: ../lib/Select-Apagar-PHP/Integrante.php');
         break;
-            
-        case "10":
-            header('Location: ../lib/Select-Apagar-PHP/Designado_comprado.php');
-        break;
         
         case "11":
             header('Location: ../lib/Select-Apagar-PHP/AlugadoEmprestado.php');
@@ -52,11 +44,7 @@ if( isset($_POST['Testando']) ){
                 
         case "12":
             header('Location: ../lib/Select-Apagar-PHP/Comprado.php');
-        break; 
-        
-        case "13":
-            header('Location: ../lib/Select-Apagar-PHP/Participa.php');
-        break;   
+        break;    
     }
 
 }else{
@@ -87,13 +75,10 @@ if( isset($_POST['Testando']) ){
     <option value="4">Dias</option>
     <option value="5">Ingresso</option>
     <option value="6">PatrocinadorMaterial</option>
-    <option value="97">??? - Designado_alugadoemprestado</option>
     <option value="8">Times</option>
     <option value="9">Integrante</option>
-    <option value="99">??? - Designado_comprado</option>
     <option value="11">AlugadoEmprestado</option>
     <option value="12">Comprado</option>
-    <option value="98">??? - Participa</option>
 
   </select>
 

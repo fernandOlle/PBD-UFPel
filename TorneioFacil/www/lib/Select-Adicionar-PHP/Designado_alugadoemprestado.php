@@ -41,19 +41,19 @@
     if( $numRegistros == 0 || $numRegistros2 == 0 ){
         //Se não achou no banco de dados algum dos 2 dados
         echo "<script>alert('Algum dado não foi encontrado');</script>";
-    else{
+    }else{
         //Se achou ele adiciona
         $query_alugadoemprestado = "INSERT INTO designado_alugadoemprestado (id_dias, id_equipamento_alugadoemprestado) VALUES ('$id_dias', '$id_equipamento_alugadoemprestado')";
         $cad_alugadoemprestado = $pdo->prepare($query_alugadoemprestado);
         $cad_alugadoemprestado->execute();
+        if( $cad_alugadoemprestado->rowCount() ){
+            //se conseguiu cadastrar
+            echo "<script>alert('Designado Alugado/Emprestado cadastrado!');</script>";
+        }else{
+            echo "<script>alert('Erro: Designado Alugado/Emprestado não cadastrado!');</script>";
+        }
     }
     
-    if( $cad_alugadoemprestado->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Designado Alugado/Emprestado cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Designado Alugado/Emprestado não cadastrado!');</script>";
-    }
 
     }
 ?>

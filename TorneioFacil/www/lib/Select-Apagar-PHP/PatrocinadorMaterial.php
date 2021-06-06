@@ -43,7 +43,7 @@ if( isset($_POST['BotaoEnviar']) ){
     }else{
         echo "<script>alert('Erro: Patrocinador Material não apagado!');</script>";
     }
-
+    }
 
 }
 ?>

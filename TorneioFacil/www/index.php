@@ -15,7 +15,11 @@
 
 <h1>Menu</h1>
     <a href="./modulos/Select_Adicionar.php">Adicionar</a>
-    <a href="./modulos/Select_Listar.php">Listar</a> 
-    <a href="./modulos/Select_Apagar.php">Apagar</a> 
+    <br>
+    <a href="./modulos/Select_Listar.php">Listar</a>
+    <br> 
+    <a href="./modulos/Select_Apagar.php">Apagar</a>
+    <br>
+    <a href="./modulos/Buscas.php">BuscasSQL</a>
 </body>
 </html>

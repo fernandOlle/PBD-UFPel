@@ -49,14 +49,14 @@
         $query_times = "INSERT INTO ttimes (nmr_integrantes, nome_time, total_partidas, rodadaatual, eliminado, id_torneio) VALUES ('$nmr_integrantes', '$nome_time' '$total_partidas', '$rodadaatual', '$eliminado', '$id_torneio')";
         $cad_times = $pdo->prepare($query_times);
         $cad_times->execute();
+        if( $cad_times->rowCount() ){
+            //se conseguiu cadastrar
+            echo "<script>alert('Time cadastrado!');</script>";
+        }else{
+            echo "<script>alert('Erro: Time não cadastrado!');</script>";
+        }
     }
 
-    if( $cad_times->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Time cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Time não cadastrado!');</script>";
-    }
 
     }
 ?>
