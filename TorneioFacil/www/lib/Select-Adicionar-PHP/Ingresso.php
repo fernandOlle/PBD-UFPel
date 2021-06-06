@@ -52,7 +52,8 @@
         echo "<script>alert('Algum dado não foi encontrado');</script>";
     }else{ 
         // se achou o ID fornecido ele pega o campo da data desse ID do dia
-        $Data = mysql_query("select dt_ini from $consulta2");        
+        $Data = "SELECT dt_ini FROM $numRegistros2[]";
+        //mysql_query("select dt_ini from $consulta2");        
 
         $query_Ingresso = "INSERT INTO ingresso (valor, dt_partida, nmr_assento , cpf, id_torneio, id_dias ) VALUES ('$valor', '$Data', '$assento', '$cpf', '$id_torneio', '$id_dias')";
         $cad_Ingresso = $pdo->prepare($query_Ingresso);

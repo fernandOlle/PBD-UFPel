@@ -28,14 +28,15 @@ if( !empty( $_POST["id"])  ){
     $id = $_POST["id"] + 0;
     // + 0 força ele p converter a int
 
-    $query_resultado = "SELECT nome, email, cpf, integrante.id_time from integrante INNER JOIN participa ON integrante.id_time = participa.id_time and participa.id_time = $id ";
+    $query_resultado = "SELECT nome, email, cpf, integrante.id_time FROM integrante INNER JOIN ttimes ON integrante.id_time = ttimes.id_time and ttimes.id_time = $id";
     $resultado = $pdo->prepare($query_resultado);
     $resultado->execute();
 
     if( ($resultado) AND ($resultado->rowCount() != 0) ){
         $i = 0;
         //faz a busca pela coluna
-        while(   ($row_users = $resultado->fetch(PDO::FETCH_BOTH) ) && ($i < ($resultado->rowCount() / 2)) ){
+        
+        while(   ($row_users = $resultado->fetch(PDO::FETCH_BOTH) ) && ($i < $resultado->rowCount()) ){
         //facilita na hora de printar os dados
         $i+=1;
         extract($row_users);

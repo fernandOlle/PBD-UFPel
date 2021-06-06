@@ -52,8 +52,8 @@ if( isset($_POST['Testando']) ){
 <form method="POST" action="Buscas.php">
   <select class="form-select" aria-label="Default select example" name="Testando">
     <option selected>Selecione um banco para listar</option>
-    <option value="1">Busca Integrantes por Time</option>
-    <option value="2">Busca Times Dia</option>
+    <option value="1">Busca Integrantes por Dia</option>
+    <option value="2">Busca Integrantes por Time</option>
     <option value="3">Busca Equipamento</option>
     <option value="4">Patrocinador Dinheiro</option>
     <option value="5">Busca Ingresso</option>
