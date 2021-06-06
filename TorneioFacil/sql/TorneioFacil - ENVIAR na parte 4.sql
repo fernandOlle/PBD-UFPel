@@ -6,7 +6,7 @@ create table torneio (
 	id_torneio serial not null, 
 	dt_ini date not null, 
 	dt_fim date not null, 
-	orcamento int,
+	orcamento bigint(255),
 	endereco char(30)
 );
 

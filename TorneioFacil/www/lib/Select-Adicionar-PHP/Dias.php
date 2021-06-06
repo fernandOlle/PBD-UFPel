@@ -43,10 +43,10 @@
         echo "<script>alert('ID de torneio não encontrado');</script>";
     }else{
         // se achou o ID fornecido ele pega o campo da data de inicio e fim do torneio
-        $ini_torneio = mysql_query("select dt_ini from $consulta");
-        $fim_torneio = mysql_query("select dt_fim from $consulta");
+        $ini_torneio = "SELECT dt_ini from torneio where id_torneio = '$id_torneio' ";
+        $fim_torneio = "SELECT dt_fim from torneio where id_torneio = '$id_torneio' ";
 
-    if( strtotime($ini_torneio) < strtotime($dataINI) || strtotime($dataINI) > strtotime($fim_torneio) ){
+    if( strtotime($ini_torneio) < strtotime($dataINI) || strtotime($dataINI) < strtotime($fim_torneio) ){
         //Se a data fornecida for inválida
         echo "<script>alert('Erro: data fornecida inválida');</script>";
     }else{
