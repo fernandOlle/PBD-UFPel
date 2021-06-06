@@ -48,21 +48,29 @@
     $numRegistros2 = $verificar_busca2->fetch(PDO::FETCH_ASSOC);
 
     if( $numRegistros == 0 || $numRegistros2 == 0){
-        //Se não achou no banco de dados algum dos 3 dados
+        //Se não achou no banco de dados algum dos 2 dados
         echo "<script>alert('Algum dado não foi encontrado');</script>";
     }else{ 
         // se achou o ID fornecido ele pega o campo da data desse ID do dia
-        $Data = "SELECT dt_ini FROM $numRegistros2[]";
-        //mysql_query("select dt_ini from $consulta2");        
-
-        $query_Ingresso = "INSERT INTO ingresso (valor, dt_partida, nmr_assento , cpf, id_torneio, id_dias ) VALUES ('$valor', '$Data', '$assento', '$cpf', '$id_torneio', '$id_dias')";
-        $cad_Ingresso = $pdo->prepare($query_Ingresso);
-        $cad_Ingresso->execute();
-        if( $cad_Ingresso->rowCount() ){
-            //se conseguiu cadastrar
-            echo "<script>alert('Ingresso cadastrado!');</script>";
+        $busca_data = "SELECT dt_ini FROM dias WHERE id_dias = '$id_dias'";
+        $busca_res = $pdo->prepare($busca_data);
+        $busca_res->execute();
+        $res_res = $busca_res->fetch(PDO::FETCH_ASSOC);
+        if(strtotime($res_res["dt_ini"]) != strtotime($Data)){
+            echo "<script>alert('Fei... ta errado...');</script>";
         }else{
-            echo "<script>alert('Erro: Ingresso não cadastrado!');</script>";
+            //mysql_query("select dt_ini from $consulta2");        
+    
+            $query_Ingresso = "INSERT INTO ingresso (valor, dt_partida, nmr_assento , cpf, id_torneio, id_dias ) VALUES ('$valor', '$Data', '$assento', '$cpf', '$id_torneio', '$id_dias')";
+            $cad_Ingresso = $pdo->prepare($query_Ingresso);
+            $cad_Ingresso->execute();
+            if( $cad_Ingresso->rowCount() ){
+                //se conseguiu cadastrar
+                echo "<script>alert('Ingresso cadastrado!');</script>";
+            }else{
+                echo "<script>alert('Erro: Ingresso não cadastrado!');</script>";
+            }
+
         }
     }
 
