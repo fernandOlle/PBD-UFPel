@@ -8,12 +8,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deletar Torneio</title>
+    <title>Deletar Ingresso </title>
 </head>
 <body>
-    <a href="../index.php">Voltar para o inicio</a>
-    <h1>Deletar Torneio</h1>
-    <form method="POST" action="Torneio.php">
+    <a href="../../index.php">Voltar para o inicio</a>
+    <h1>Ingresso </h1>
+    <form method="POST" action="Ingresso.php">
 
     <input type="text" name="id" id="id" placeholder="Digite o ID para Apagar" required><br><br>
 
@@ -30,18 +30,18 @@ if( isset($_POST['BotaoEnviar']) ){
     $id = $_POST["id"] + 0;
     // + 0 força ele p converter a int
 
-    $query_resultado = "SELECT * FROM torneio WHERE id_torneio = $id LIMIT 1";
+    $query_resultado = "SELECT * FROM ingresso WHERE id_ingresso = $id LIMIT 1";
     $resultado = $pdo->prepare($query_resultado);
     $resultado->execute();
 
     if( ($resultado) AND ($resultado->rowCount() != 0) ){
-    $remover = "DELETE FROM torneio WHERE id_torneio = $id";
+    $remover = "DELETE FROM ingresso WHERE  id_ingresso = $id";
     $apagar = $pdo->prepare($remover);
 
     if( $apagar->execute() ){
-        echo "<script>alert('torneio apagado com sucesso!');</script>";
+        echo "<script>alert('Ingresso apagado com sucesso!');</script>";
     }else{
-        echo "<script>alert('Erro: torneio não apagado!');</script>";
+        echo "<script>alert('Erro: Ingresso não apagado!');</script>";
     }
 
 
