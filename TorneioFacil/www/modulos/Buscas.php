@@ -49,7 +49,7 @@ if( isset($_POST['Testando']) ){
 </head>
 <body>
 <a href="../index.php">Voltar para o inicio</a>
-<form method="POST" style="width : 30%" action="Buscas.php">
+<form method="POST" style="width:25%" action="Buscas.php">
   <select class="form-select" aria-label="Default select example" name="Testando">
     <option selected>Selecione um banco para listar</option>
     <option value="1">Busca Integrantes por Dia</option>
