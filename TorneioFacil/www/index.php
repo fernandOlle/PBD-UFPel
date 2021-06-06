@@ -1,23 +1,21 @@
+
 <?php
+    include("./Conexao.php");
+?>
 
-  $host = '10.2.0.3';
-  $user = 'root';
-  $password = 'toor';
-  $dbname = 'base_torneiofacil';
-  
-  // Set DSN
-  $dsn = 'mysql:host='. $host .';port=3306;'.'dbname='. $dbname;
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+   <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+<body>
 
-  // Create a PDO instance
-  $pdo = new PDO($dsn, $user, $password);
-  $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-  $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
- # PRDO QUERY
-
-  $stmt = $pdo->query('SELECT * FROM test');
-
-  while($row = $stmt->fetch()){
-    echo $row->hello_world . '<br>';
-  }
-  
-  echo "hello world";
+<h1>Menu</h1>
+    <a href="Select_Adicionar.php">Adicionar</a>
+    <a href="Select_Listar.php">Listar</a> 
+    <a href="Select_Apagar.php">Apagar</a> 
+</body>
+</html>

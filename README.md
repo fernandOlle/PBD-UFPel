@@ -28,5 +28,3 @@ nome_do_projeto/
 
 + www/templates – toda a parte estética fica armazenada aqui. Normalmente contém as pastas:
 css, imagens, flash e js. São auto-explicativas.
-
-
