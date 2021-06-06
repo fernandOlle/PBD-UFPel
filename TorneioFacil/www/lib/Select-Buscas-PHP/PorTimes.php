@@ -33,12 +33,12 @@ if( !empty( $_POST["id"])  ){
     $resultado->execute();
 
     if( ($resultado) AND ($resultado->rowCount() != 0) ){
-        $i = 0;
+        //$i = 0;
         //faz a busca pela coluna
         
-        while(   ($row_users = $resultado->fetch(PDO::FETCH_BOTH) ) && ($i < $resultado->rowCount()) ){
+        while($row_users = $resultado->fetch(PDO::FETCH_BOTH)){
         //facilita na hora de printar os dados
-        $i+=1;
+        //$i+=1;
         extract($row_users);
         //foreach($row_users as $jogadores){
             echo "Nome: " . $row_users["nome"] . "<br>Email: " . $row_users["email"] . "<br>cpf: " . $row_users["cpf"] . "<br>ID do time: " . $row_users["id_time"] . "<br> <hr>";

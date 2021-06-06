@@ -7,7 +7,7 @@ if( isset($_POST['Testando']) ){
 
     switch($resultado){
         case "1":
-            header('Location: ../lib/Select-Buscas-PHP/PorPatidas.php');
+            header('Location: ../lib/Select-Buscas-PHP/PorPartidas.php');
         break;
     
         case "2":
@@ -15,11 +15,11 @@ if( isset($_POST['Testando']) ){
         break;
     
         case "3":
-            header('Location: ../lib/Select-Buscas-PHP/Organizador.php');
+            header('Location: ../lib/Select-Buscas-PHP/Equipamentos.php');
         break;
         
         case "4":
-            header('Location: ../lib/Select-Buscas-PHP/Dias.php');
+            header('Location: ../lib/Select-Buscas-PHP/Patrocinador.php');
         break;
     
         case "5":
@@ -27,7 +27,7 @@ if( isset($_POST['Testando']) ){
         break;
             
         case "6":
-            header('Location: ../lib/Select-Buscas-PHP/PatrocinadorMaterial.php');
+            header('Location: ../lib/Select-Buscas-PHP/Organizador.php');
         break;   
     }
 
@@ -49,13 +49,13 @@ if( isset($_POST['Testando']) ){
 </head>
 <body>
 <a href="../index.php">Voltar para o inicio</a>
-<form method="POST" action="Buscas.php">
+<form method="POST" style="width : 30%" action="Buscas.php">
   <select class="form-select" aria-label="Default select example" name="Testando">
     <option selected>Selecione um banco para listar</option>
     <option value="1">Busca Integrantes por Dia</option>
     <option value="2">Busca Integrantes por Time</option>
     <option value="3">Busca Equipamento</option>
-    <option value="4">Patrocinador Dinheiro</option>
+    <option value="4">Patrocinador</option>
     <option value="5">Busca Ingresso</option>
     <option value="6">Busca Dados Organizador</option>
 
