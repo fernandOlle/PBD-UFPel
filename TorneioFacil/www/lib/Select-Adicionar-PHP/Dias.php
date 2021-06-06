@@ -1,21 +1,23 @@
 <?php
-    include("../../modulos/Conexao.php");
+include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Dias</title>
 </head>
+
 <body>
     <a href="../../index.php">Voltar para o inicio</a>
     <h1>Cadastrar Dias</h1>
     <form method="POST" action="Dias.php">
-    <label>Digite a data de inicio: </label>
-        <input type="date" name="dataINI" id="nome"required><br><br>
+        <label>Digite a data de inicio: </label>
+        <input type="date" name="dataINI" id="nome" required><br><br>
 
         <label>Digite a hora: </label>
         <input type="DateTime" name="hora" id="nome" placeholder="Digite a hora" required><br><br>
@@ -24,10 +26,11 @@
         <input type="submit" class="btn btn-outline-primary" id="exampleFormControlInput1" name="BotaoEnviar" value="Enviar">
     </form>
 </body>
+
 </html>
 
 <?php
-    if( isset($_POST['BotaoEnviar']) ){
+if (isset($_POST['BotaoEnviar'])) {
 
     $dataINI = $_POST["dataINI"];
     $hora = $_POST["hora"];
@@ -38,31 +41,36 @@
     $verificar_busca->execute();
     $numRegistros = $verificar_busca->fetch(PDO::FETCH_ASSOC);
 
-    if( $numRegistros == 0){
+    if ($numRegistros == 0) {
         //Se não achou no banco de dados o ID do torneio fornecido
         echo "<script>alert('ID de torneio não encontrado');</script>";
-    }else{
+    } else {
         // se achou o ID fornecido ele pega o campo da data de inicio e fim do torneio
         $ini_torneio = "SELECT dt_ini from torneio where id_torneio = '$id_torneio' ";
+        $verificar_ini = $pdo->prepare($ini_torneio);
+        $verificar_ini->execute();
+        $ini_res = $verificar_ini->fetch(PDO::FETCH_ASSOC);
+
         $fim_torneio = "SELECT dt_fim from torneio where id_torneio = '$id_torneio' ";
+        $verificar_fim = $pdo->prepare($fim_torneio);
+        $verificar_fim->execute();
+        $fim_res = $verificar_fim->fetch(PDO::FETCH_ASSOC);
 
-    if( strtotime($ini_torneio) < strtotime($dataINI) || strtotime($dataINI) < strtotime($fim_torneio) ){
-        //Se a data fornecida for inválida
-        echo "<script>alert('Erro: data fornecida inválida');</script>";
-    }else{
-        //Se for válida ele adiciona
-        $query_Dias = "INSERT INTO dias (dt_ini, hr_ini, id_torneio) VALUES ('$dataINI', '$hora', '$id_torneio')";
-        $cad_Dias = $pdo->prepare($query_Dias);
-        $cad_Dias->execute();
+        if (strtotime($ini_res["dt_ini"]) > strtotime($dataINI) || strtotime($dataINI) > strtotime($fim_res["dt_fim"])) {
+            //Se a data fornecida for inválida
+            echo "<script>alert('Erro: data fornecida inválida');</script>";
+        } else {
+            //Se for válida ele adiciona
+            $query_Dias = "INSERT INTO dias (dt_ini, hr_ini, id_torneio) VALUES ('$dataINI', '$hora', '$id_torneio')";
+            $cad_Dias = $pdo->prepare($query_Dias);
+            $cad_Dias->execute();
+            if ($cad_Dias->rowCount()) {
+                //se conseguiu cadastrar
+                echo "<script>alert('Dias cadastrado!');</script>";
+            } else {
+                echo "<script>alert('Erro: Dias não cadastrado!');</script>";
+            }
+        }
     }
-    }
-
-    if( $cad_Dias->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Dias cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Dias não cadastrado!');</script>";
-    }
-
-    }
+}
 ?>

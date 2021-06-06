@@ -50,14 +50,14 @@
         $query_patrocinador = "INSERT INTO patrocinadormaterial (cpf, nome, tipo, dt_aquisicao, local_guardado, id_torneio ) VALUES ('$cpf', '$nome', '$tipo', '$Data', '$local_guardado', '$id_torneio')";
         $cad_patrocinador = $pdo->prepare($query_patrocinador);
         $cad_patrocinador->execute();
+        if( $cad_patrocinador->rowCount() ){
+            //se conseguiu cadastrar
+            echo "<script>alert('Patrocinador material cadastrado!');</script>";
+        }else{
+            echo "<script>alert('Erro: Patrocinador material não cadastrado!');</script>";
+        }
     }
 
-    if( $cad_patrocinador->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Patrocinador material cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Patrocinador material não cadastrado!');</script>";
-    }
 
     }
 ?>

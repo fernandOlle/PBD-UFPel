@@ -33,13 +33,15 @@ if( !empty( $_POST["id"])  ){
     $resultado->execute();
 
     if( ($resultado) AND ($resultado->rowCount() != 0) ){
-
+        $i = 0;
         //faz a busca pela coluna
-        $row_usuários = $resultado->fetch(PDO::FETCH_ASSOC);
-        
+        while(   ($row_users = $resultado->fetch(PDO::FETCH_BOTH) ) && ($i < ($resultado->rowCount() / 2)) ){
         //facilita na hora de printar os dados
-        extract($row_usuários);
-        echo "Nome: " . $nome . "<br>Email: " . $email . "<br>cpf: " . $cpf . "<br>ID do time: " . $integrante.id_time . "<br> <hr>";
+        $i+=1;
+        extract($row_users);
+        //foreach($row_users as $jogadores){
+            echo "Nome: " . $row_users["nome"] . "<br>Email: " . $row_users["email"] . "<br>cpf: " . $row_users["cpf"] . "<br>ID do time: " . $row_users["id_time"] . "<br> <hr>";
+        }
     }else{
         echo "<script>alert('Erro: Nenhum dado encontrado!');</script>";
     }
