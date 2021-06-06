@@ -270,3 +270,5 @@ select valor, nmr_assento, cpf, id_ingresso, id_dias from ingresso;
 
 /* -- busca os dados de organizador */
 select nome, telefone, cpf, email from organizador;
+
+COMMIT ;
