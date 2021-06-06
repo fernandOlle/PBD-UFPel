@@ -1,5 +1,6 @@
+
 <?php
-    include("./Conexao.php");
+    include("./modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +14,8 @@
 <body>
 
 <h1>Menu</h1>
-    <a href="Select_Adicionar.php">Adicionar</a>
-    <a href="Select_Listar.php">Listar</a> 
-    <a href="Select_Apagar.php">Apagar</a> 
+    <a href="./modulos/Select_Adicionar.php">Adicionar</a>
+    <a href="./modulos/Select_Listar.php">Listar</a> 
+    <a href="./modulos/Select_Apagar.php">Apagar</a> 
 </body>
 </html>

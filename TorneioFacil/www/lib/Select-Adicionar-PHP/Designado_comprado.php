@@ -1,5 +1,5 @@
 <?php
-    include("../Conexao.php");
+    include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <title>Cadastrar Designado Comprado</title>
 </head>
 <body>
-    <a href="../index.php">Voltar para o inicio</a>
+    <a href="../../index.php">Voltar para o inicio</a>
     <h1>Cadastrar Designado Comprado</h1>
     <form method="POST" action="Designado_comprado.php">
     <input type="int" name="id_dias" id="nome" placeholder="Digite o ID do dia que será designado esse equipamento" required><br><br>

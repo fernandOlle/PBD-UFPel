@@ -1,5 +1,5 @@
 <?php
-    include("../Conexao.php");
+    include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <title>Cadastrar Torneio</title>
 </head>
 <body>
-    <a href="../index.php">Voltar para o inicio</a>
+    <a href="../../index.php">Voltar para o inicio</a>
     <h1>Cadastrar Torneio</h1>
     <form method="POST" action="Torneio.php">
         <label>Digite a data de inicio: </label>
