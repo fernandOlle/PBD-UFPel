@@ -66,7 +66,7 @@ if( isset($_POST['Testando']) ){
 </head>
 <body>
 <a href="../index.php">Voltar para o inicio</a>
-<form method="POST" action="Select_Apagar.php">
+<form method="POST" style="width:25%" action="Select_Apagar.php">
   <select class="form-select" aria-label="Default select example" name="Testando">
     <option selected>Selecione um banco para Apagar</option>
     <option value="1">Torneio</option>
