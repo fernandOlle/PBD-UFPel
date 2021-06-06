@@ -15,7 +15,7 @@
     <h1>Listar Times</h1>
 
 <?php
-    $query_usuarios = "SELECT id_time, nome_time, nmr_integrantes, total_partidas, rodadaatual, eliminado, id_torneio FROM times";
+    $query_usuarios = "SELECT id_time, nome_time, nmr_integrantes, total_partidas, rodadaatual, eliminado, id_torneio FROM ttimes";
     $resultado_usuarios = $pdo->prepare($query_usuarios);
     $resultado_usuarios->execute();
 
