@@ -44,6 +44,6 @@ if( isset($_POST['BotaoEnviar']) ){
         echo "<script>alert('Erro: Integrante não apagado!');</script>";
     }
 
-
+    }
 }
 ?>

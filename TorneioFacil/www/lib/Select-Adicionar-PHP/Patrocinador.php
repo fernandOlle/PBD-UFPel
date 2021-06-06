@@ -1,5 +1,5 @@
 <?php
-    include("../../../modulos/Conexao.php");
+    include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -41,19 +41,19 @@
     if( $numRegistros == 0){
         //Se não achou no banco de dados o ID do torneio fornecido
         echo "<script>alert('ID de torneio não encontrado');</script>";
-    else{
+    }else{
         //Se achou ele adiciona
         $query_patrocinador = "INSERT INTO patrocinador (cpf, nome, contribuiçao, id_torneio ) VALUES ('$cpf', '$nome', '$contribuicao', '$id_torneio')";
         $cad_patrocinador = $pdo->prepare($query_patrocinador);
         $cad_patrocinador->execute();
+        if( $cad_patrocinador->rowCount() ){
+            //se conseguiu cadastrar
+            echo "<script>alert('Patrocinador cadastrado!');</script>";
+        }else{
+            echo "<script>alert('Erro: Patrocinador não cadastrado!');</script>";
+        }
     }
 
-    if( $cad_patrocinador->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Patrocinador cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Patrocinador não cadastrado!');</script>";
-    }
 
     }
 ?>

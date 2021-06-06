@@ -20,7 +20,7 @@
         <label>Digite a data de fim: </label>
         <input type="date" name="dataFIM" id="nome" placeholder="Digite a data de fim" required><br><br>
 
-        <input type="number" name="orcamento" id="nome" placeholder="Digite o orçamento" required><br><br>
+        <input type="bigint" name="orcamento" id="nome" placeholder="Digite o orçamento" required><br><br>
 
         <input type="text" name="end" id="nome" placeholder="Digite o endereço"><br><br>
 
@@ -36,6 +36,11 @@ $dataINI = $_POST["dataINI"];
 $dataFIM = $_POST["dataFIM"];
 $orcamento = $_POST["orcamento"];
 $end = $_POST["end"];
+
+if($dataFIM < $dataINI){
+    echo "<script>alert('Erro: data fornecida inválida');</script>";
+    return;
+}
 
 $query_torneio = "INSERT INTO torneio (dt_ini, dt_fim, orcamento, endereco) VALUES ('$dataINI', '$dataFIM', '$orcamento', '$end')";
 

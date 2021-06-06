@@ -1,29 +1,32 @@
 <?php
-    include("../../modulos/Conexao.php");
+include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deletar Patrocinador </title>
 </head>
+
 <body>
     <a href="../../index.php">Voltar para o inicio</a>
     <h1>Patrocinador </h1>
     <form method="POST" action="Patrocinador.php">
 
-    <input type="text" name="id" id="id" placeholder="Digite o ID para Apagar" required><br><br>
+        <input type="text" name="id" id="id" placeholder="Digite o ID para Apagar" required><br><br>
 
         <input type="submit" class="btn btn-outline-primary" id="exampleFormControlInput1" name="BotaoEnviar" value="Enviar">
     </form>
 </body>
+
 </html>
 
 <?php
-if( isset($_POST['BotaoEnviar']) ){
+if (isset($_POST['BotaoEnviar'])) {
 
     // verifica se já foi enviado algo pelo formulário
 
@@ -34,16 +37,15 @@ if( isset($_POST['BotaoEnviar']) ){
     $resultado = $pdo->prepare($query_resultado);
     $resultado->execute();
 
-    if( ($resultado) AND ($resultado->rowCount() != 0) ){
-    $remover = "DELETE FROM patrocinador WHERE  id_patrocinio = $id";
-    $apagar = $pdo->prepare($remover);
+    if (($resultado) and ($resultado->rowCount() != 0)) {
+        $remover = "DELETE FROM patrocinador WHERE  id_patrocinio = $id";
+        $apagar = $pdo->prepare($remover);
 
-    if( $apagar->execute() ){
-        echo "<script>alert('patrocinador apagado com sucesso!');</script>";
-    }else{
-        echo "<script>alert('Erro: patrocinador não apagado!');</script>";
+        if ($apagar->execute()) {
+            echo "<script>alert('patrocinador apagado com sucesso!');</script>";
+        } else {
+            echo "<script>alert('Erro: patrocinador não apagado!');</script>";
+        }
     }
-
-
 }
 ?>

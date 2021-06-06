@@ -50,21 +50,22 @@
     if( $numRegistros == 0 || $numRegistros2 == 0){
         //Se não achou no banco de dados algum dos 3 dados
         echo "<script>alert('Algum dado não foi encontrado');</script>";
-    else{ 
+    }else{ 
         // se achou o ID fornecido ele pega o campo da data desse ID do dia
-        $Data = mysql_query("select dt_ini from $consulta2");        
+        $Data = "SELECT dt_ini FROM $numRegistros2[]";
+        //mysql_query("select dt_ini from $consulta2");        
 
         $query_Ingresso = "INSERT INTO ingresso (valor, dt_partida, nmr_assento , cpf, id_torneio, id_dias ) VALUES ('$valor', '$Data', '$assento', '$cpf', '$id_torneio', '$id_dias')";
         $cad_Ingresso = $pdo->prepare($query_Ingresso);
         $cad_Ingresso->execute();
+        if( $cad_Ingresso->rowCount() ){
+            //se conseguiu cadastrar
+            echo "<script>alert('Ingresso cadastrado!');</script>";
+        }else{
+            echo "<script>alert('Erro: Ingresso não cadastrado!');</script>";
+        }
     }
 
-    if( $cad_Ingresso->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Ingresso cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Ingresso não cadastrado!');</script>";
-    }
 
     }
 ?>

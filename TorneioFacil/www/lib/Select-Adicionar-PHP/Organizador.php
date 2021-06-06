@@ -43,18 +43,17 @@
     if( $numRegistros == 0){
         //Se não achou no banco de dados o ID do torneio fornecido
         echo "<script>alert('ID de torneio não encontrado');</script>";
-    else{
+    }else{
         //Se achou ele adiciona
         $query_Organizador = "INSERT INTO organizador (cpf, nome, telefone, email, id_torneio ) VALUES ('$cpf', '$nome', '$telefone', '$email', '$id_torneio')";
         $cad_Organizador = $pdo->prepare($query_Organizador);
         $cad_Organizador->execute();
-    }
-
-    if( $cad_Organizador->rowCount() ){
-        //se conseguiu cadastrar
-        echo "<script>alert('Organizador cadastrado!');</script>";
-    }else{
-        echo "<script>alert('Erro: Organizador não cadastrado!');</script>";
+            if( $cad_Organizador->rowCount() ){
+                //se conseguiu cadastrar
+                echo "<script>alert('Organizador cadastrado!');</script>";
+            }else{
+                echo "<script>alert('Erro: Organizador não cadastrado!');</script>";
+            }
     }
 
     }
