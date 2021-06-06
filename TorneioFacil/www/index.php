@@ -16,9 +16,15 @@
 <h1>Menu</h1>
     <a href="./modulos/Select_Adicionar.php">Adicionar</a>
     <br>
+    <br>
+    <br>
     <a href="./modulos/Select_Listar.php">Listar</a>
+    <br>
+    <br>
     <br> 
     <a href="./modulos/Select_Apagar.php">Apagar</a>
+    <br>
+    <br>
     <br>
     <a href="./modulos/Buscas.php">BuscasSQL</a>
 </body>

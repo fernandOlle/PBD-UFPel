@@ -1,5 +1,13 @@
 <?php
     include("../../modulos/Conexao.php");
+    $teste = "SELECT * FROM torneio";
+    $resp_teste = $pdo->prepare($teste);
+    $resp_teste->execute();
+    if($resp_teste->rowCount() != 0){
+        //echo "<script>alert('ERRORS mto erros msm cara');</script>";
+        exit(header('Location: /index.php'));
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +44,7 @@ $dataINI = $_POST["dataINI"];
 $dataFIM = $_POST["dataFIM"];
 $orcamento = $_POST["orcamento"];
 $end = $_POST["end"];
+
 
 if($dataFIM < $dataINI){
     echo "<script>alert('Erro: data fornecida inválida');</script>";
