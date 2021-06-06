@@ -55,7 +55,7 @@ if( isset($_POST['Testando']) ){
         break; 
         
         case "13":
-            header('Location: .../lib/Select-Listar-PHP/Participa.php');
+            header('Location: ../lib/Select-Listar-PHP/Participa.php');
         break;   
     }
 
@@ -73,7 +73,7 @@ if( isset($_POST['Testando']) ){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar</title>
+    <title>Listar</title>
 </head>
 <body>
 <a href="../index.php">Voltar para o inicio</a>
