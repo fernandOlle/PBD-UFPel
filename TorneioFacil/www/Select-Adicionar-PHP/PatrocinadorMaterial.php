@@ -14,6 +14,8 @@
     <a href="../index.php">Voltar para o inicio</a>
     <h1>Cadastrar Patrocinador Material</h1>
     <form method="POST" action="PatrocinadorMaterial.php">
+    <input type="varchar" name="cpf" id="nome" placeholder="Digite o cpf" required><br><br>
+    <input type="text" name="nome" id="nome" placeholder="Digite o nome" required><br><br>
     <input type="text" name="tipo" id="nome" placeholder="Digite o tipo de matérial/objeto" required><br><br>
     <label>Digite a data que foi fornecido: </label>
         <input type="date" name="Data" id="nome" placeholder="Digite a data que foi fornecido" required><br><br>
@@ -28,6 +30,8 @@
 <?php
     if( isset($_POST['BotaoEnviar']) ){
 
+    $nome = $_POST["nome"];
+    $cpf = $_POST["cpf"];
     $Data = $_POST["Data"];
     $tipo = $_POST["tipo"];
     $local_guardado = $_POST["local_guardado"];
@@ -43,7 +47,7 @@
         echo "<script>alert('ID de torneio não encontrado');</script>";
     }else{
         //Se achou ele adiciona
-        $query_patrocinador = "INSERT INTO patrocinadormaterial (tipo, dt_aquisicao, local_guardado, id_torneio ) VALUES ('$tipo', '$Data', '$local_guardado', '$id_torneio')";
+        $query_patrocinador = "INSERT INTO patrocinadormaterial (cpf, nome, tipo, dt_aquisicao, local_guardado, id_torneio ) VALUES ('$cpf', '$nome', '$tipo', '$Data', '$local_guardado', '$id_torneio')";
         $cad_patrocinador = $pdo->prepare($query_patrocinador);
         $cad_patrocinador->execute();
     }

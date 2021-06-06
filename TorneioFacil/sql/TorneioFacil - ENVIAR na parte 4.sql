@@ -54,16 +54,19 @@ alter table ingresso add foreign key (id_dias) references dias (id_dias) ON DELE
 
 create table patrocinadormaterial (
 	id_patrocinio serial not null, 
+	cpf varchar(11) not null, 
+	nome varchar(30) not null,
 	tipo varchar(30) not null, 
 	dt_aquisicao timestamp not null, 
 	local_guardado char(30) not null,
 	id_torneio int not null
 );
 alter table patrocinadormaterial add primary key(id_patrocinio);
-alter table patrocinador add foreign key (id_torneio) references torneio (id_torneio) ON DELETE SET NULL ON UPDATE CASCADE;
+alter table patrocinadormaterial add foreign key (id_torneio) references torneio (id_torneio) ON DELETE SET NULL ON UPDATE CASCADE;
 
 create table times (
 	id_time serial not null, 
+	nome_time varchar(30),
 	nmr_integrantes int not null, 
 	total_partidas int not null, 
 	rodadaatual int not null, 
@@ -146,15 +149,15 @@ INSERT INTO ingresso VALUES (2, 10, '21-10-2010', 2, '10101010101', 1, 2);
 INSERT INTO ingresso VALUES (3, 20, '22-10-2010', 3, '12121212121', 1, 3);
 INSERT INTO ingresso VALUES (4, 25, '23-10-2010', 4, '13131313131', 1, 4);
 
-INSERT INTO patrocinadormaterial VALUES (1, 'Cadeira', '15-10-2010', 'Galpão');
-INSERT INTO patrocinadormaterial VALUES (2, 'Mesa', '15-10-2010', 'Galpão');
-INSERT INTO patrocinadormaterial VALUES (3, 'Computador', '15-10-2010', 'Galpão');
-INSERT INTO patrocinadormaterial VALUES (4, 'Headset', '15-10-2010', 'Galpão');
+INSERT INTO patrocinadormaterial VALUES (1,'94949494945', 'Elder', 'Cadeira', '15-10-2010', 'Galpão', 1);
+INSERT INTO patrocinadormaterial VALUES (2,'93939393935', 'Clara', 'Mesa', '15-10-2010', 'Galpão', 1);
+INSERT INTO patrocinadormaterial VALUES (3,'92929292925', 'Maria', 'Computador', '15-10-2010', 'Galpão', 1);
+INSERT INTO patrocinadormaterial VALUES (4,'91919191915', 'Jana', 'Headset', '15-10-2010', 'Galpão', 1);
 
-INSERT INTO times VALUES (1, 'A', 4, 4, 4, FALSE, 1);
-INSERT INTO times VALUES (2, 'B', 4, 4, 4, TRUE, 1);
-INSERT INTO times VALUES (3, 'C', 4, 2, 2, TRUE, 1);
-INSERT INTO times VALUES (4, 'D', 4, 1, 1, FALSE, 1);
+INSERT INTO times VALUES (1, 'A', 4, 1, 1, TRUE, 1);
+INSERT INTO times VALUES (2, 'B', 4, 2, 2, TRUE, 1);
+INSERT INTO times VALUES (3, 'C', 4, 3, 4, TRUE, 1);
+INSERT INTO times VALUES (4, 'D', 4, 2, 4, FALSE, 1);
 
 INSERT INTO comprado VALUES (1, 'cadeira', 'Av. Rio. Nro.8', 100);
 INSERT INTO comprado VALUES (2, 'mesa', 'Av. Rio. Nro.8', 222);
@@ -225,3 +228,22 @@ INSERT INTO integrante  VALUES ('43434343434', 'Gabriel', 'ex22@gmail.com', 4);
 INSERT INTO integrante  VALUES ('45454545454', 'Alberta', 'ex23@gmail.com', 4);
 INSERT INTO integrante  VALUES ('46464646464', 'Patricia', 'ex24@gmail.com', 4);
 INSERT INTO integrante  VALUES ('47474747474', 'Tulio', 'ex25@gmail.com', 4);
+
+--------- busca todos os integrantes do time 1
+select nome, email, cpf from integrante INNER JOIN participa ON integrante.id_time = participa.id_time and participa.id_time = 1;
+
+-- busca todas as partidas e os times que vão jogar naquele dia
+select nome_time, dt_ini, hr_ini FROM dias INNER JOIN participa ON participa.id_dias = dias.id_dias INNER JOIN times ON times.id_time = participa.id_time ORDER BY dt_ini ASC;
+
+-- bucas o nome, data e valor do equipamento, basicamente em qual dia ele foi alocado 
+select tipo, dt_ini, valor FROM dias JOIN designado_comprado ON dias.id_dias = designado_comprado.id_dias JOIN comprado ON comprado.id_equipamento = designado_comprado.id_equipamento_comprado ORDER BY dt_ini ASC;
+
+-- busca todos os patrocinadores que deram dinheiro
+select cpf, nome, contribuiçao from patrocinador  ORDER BY contribuiçao;
+
+-- busca os dados de ingresso
+select valor, nmr_assento, cpf, id_ingresso, id_dias from ingresso;
+
+-- busca os dados de organizador
+select nome, telefone, cpf, email from organizador;
+

@@ -15,6 +15,7 @@
     <h1>Cadastrar Times</h1>
     <form method="POST" action="Times.php">
     <input type="int" name="nmr_integrantes" id="nome" placeholder="Digite o número de integrantes" required><br><br>
+    <input type="text" name="nome_time" id="nome" placeholder="Digite o nome do time" required><br><br>
     <input type="int" name="total_partidas" id="nome" placeholder="Digite o total de partidas" required><br><br>
     <input type="int" name="rodadaatual" id="nome" placeholder="Digite a rodada atual" required><br><br>
     <input type="boolean" name="eliminado" id="nome" placeholder="Digite se o time está eliminado(0/1)" required><br><br>
@@ -33,6 +34,7 @@
     $rodadaatual = $_POST["rodadaatual"];
     $eliminado = $_POST["eliminado"];
     $id_torneio = $_POST["id_torneio"];
+    $nome_time = $_POST["nome_time"]; 
 
     $buscar_id = "SELECT * from torneio where id_torneio = '$id_torneio' ";
     $verificar_busca = $pdo->prepare($buscar_id);
@@ -44,7 +46,7 @@
         echo "<script>alert('ID de torneio não encontrado');</script>";
     }else{
         //Se achou ele adiciona
-        $query_times = "INSERT INTO times (nmr_integrantes, total_partidas, rodadaatual, eliminado, id_torneio) VALUES ('$nmr_integrantes', '$total_partidas', '$rodadaatual', '$eliminado', '$id_torneio')";
+        $query_times = "INSERT INTO times (nmr_integrantes, nome_time, total_partidas, rodadaatual, eliminado, id_torneio) VALUES ('$nmr_integrantes', '$nome_time' '$total_partidas', '$rodadaatual', '$eliminado', '$id_torneio')";
         $cad_times = $pdo->prepare($query_times);
         $cad_times->execute();
     }

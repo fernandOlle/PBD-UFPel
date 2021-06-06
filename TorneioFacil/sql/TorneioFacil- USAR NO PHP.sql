@@ -54,16 +54,19 @@ alter table ingresso add foreign key (id_dias) references dias (id_dias) ON DELE
 
 create table patrocinadormaterial (
 	id_patrocinio serial not null, 
+	cpf varchar(11) not null, 
+	nome varchar(30) not null,
 	tipo varchar(30) not null, 
 	dt_aquisicao timestamp not null, 
 	local_guardado char(30) not null,
 	id_torneio int not null
 );
 alter table patrocinadormaterial add primary key(id_patrocinio);
-alter table patrocinador add foreign key (id_torneio) references torneio (id_torneio) ON DELETE SET NULL ON UPDATE CASCADE;
+alter table patrocinadormaterial add foreign key (id_torneio) references torneio (id_torneio) ON DELETE SET NULL ON UPDATE CASCADE;
 
 create table times (
 	id_time serial not null, 
+	nome_time varchar(30),
 	nmr_integrantes int not null, 
 	total_partidas int not null, 
 	rodadaatual int not null, 

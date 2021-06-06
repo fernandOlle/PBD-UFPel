@@ -7,55 +7,55 @@ if( isset($_POST['Testando']) ){
 
     switch($resultado){
         case "1":
-            header('Location: ./Select-Adicionar-PHP/Torneio.php');
+            header('Location: ./Select-Listar-PHP/Torneio.php');
         break;
     
         case "2":
-            header('Location: ./Select-Adicionar-PHP/Patrocinador.php');
+            header('Location: ./Select-Listar-PHP/Patrocinador.php');
         break;
     
         case "3":
-            header('Location: ./Select-Adicionar-PHP/Organizador.php');
+            header('Location: ./Select-Listar-PHP/Organizador.php');
         break;
         
         case "4":
-            header('Location: ./Select-Adicionar-PHP/Dias.php');
+            header('Location: ./Select-Listar-PHP/Dias.php');
         break;
     
         case "5":
-            header('Location: ./Select-Adicionar-PHP/Ingresso.php');
+            header('Location: ./Select-Listar-PHP/Ingresso.php');
         break;
             
         case "6":
-            header('Location: ./Select-Adicionar-PHP/PatrocinadorMaterial.php');
+            header('Location: ./Select-Listar-PHP/PatrocinadorMaterial.php');
         break;
     
         case "7":
-            header('Location: ./Select-Adicionar-PHP/Designado_alugadoemprestado.php');
+            header('Location: ./Select-Listar-PHP/Designado_alugadoemprestado.php');
         break;
         
         case "8":
-            header('Location: ./Select-Adicionar-PHP/Times.php');
+            header('Location: ./Select-Listar-PHP/Times.php');
         break;
         
         case "9":
-            header('Location: ./Select-Adicionar-PHP/Integrante.php');
+            header('Location: ./Select-Listar-PHP/Integrante.php');
         break;
             
         case "10":
-            header('Location: ./Select-Adicionar-PHP/Designado_comprado.php');
+            header('Location: ./Select-Listar-PHP/Designado_comprado.php');
         break;
         
         case "11":
-            header('Location: ./Select-Adicionar-PHP/AlugadoEmprestado.php');
+            header('Location: ./Select-Listar-PHP/AlugadoEmprestado.php');
         break;
                 
         case "12":
-            header('Location: ./Select-Adicionar-PHP/Comprado.php');
+            header('Location: ./Select-Listar-PHP/Comprado.php');
         break; 
         
         case "13":
-            header('Location: ./Select-Adicionar-PHP/Participa.php');
+            header('Location: ./Select-Listar-PHP/Participa.php');
         break;   
     }
 
