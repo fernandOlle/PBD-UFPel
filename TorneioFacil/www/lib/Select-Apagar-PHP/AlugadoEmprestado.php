@@ -1,5 +1,5 @@
 <?php
-    include("../Conexao.php");
+    include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -8,12 +8,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deletar Patrocinador </title>
+    <title> Deletar Alugado Emprestado</title>
 </head>
 <body>
-    <a href="../index.php">Voltar para o inicio</a>
-    <h1>Patrocinador </h1>
-    <form method="POST" action="Patrocinador.php">
+    <a href="../../index.php">Voltar para o inicio</a>
+    <h1>Alugado Emprestado </h1>
+    <form method="POST" action="AlugadoEmprestado.php">
 
     <input type="text" name="id" id="id" placeholder="Digite o ID para Apagar" required><br><br>
 
@@ -30,18 +30,18 @@ if( isset($_POST['BotaoEnviar']) ){
     $id = $_POST["id"] + 0;
     // + 0 força ele p converter a int
 
-    $query_resultado = "SELECT * FROM patrocinador WHERE id_patrocinio = $id LIMIT 1";
+    $query_resultado = "SELECT id, nome, email FROM alugadoemprestado WHERE id_equipamento = $id LIMIT 1";
     $resultado = $pdo->prepare($query_resultado);
     $resultado->execute();
 
     if( ($resultado) AND ($resultado->rowCount() != 0) ){
-    $remover = "DELETE FROM patrocinador WHERE  id_patrocinio = $id";
+    $remover = "DELETE FROM AlugadoEmprestado WHERE  id_equipamento = $id";
     $apagar = $pdo->prepare($remover);
 
     if( $apagar->execute() ){
-        echo "<script>alert('patrocinador apagado com sucesso!');</script>";
+        echo "<script>alert('Alugado Emprestado apagado com sucesso!');</script>";
     }else{
-        echo "<script>alert('Erro: patrocinador não apagado!');</script>";
+        echo "<script>alert('Erro: Alugado Emprestado não apagado!');</script>";
     }
 
 

@@ -1,5 +1,5 @@
 <?php
-    include("../Conexao.php");
+    include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -8,17 +8,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Patrocinador</title>
+    <title>Cadastrar Patrocinador Material</title>
 </head>
 <body>
-    <a href="../index.php">Voltar para o inicio</a>
-    <h1>Cadastrar Patrocinador</h1>
-    <form method="POST" action="Patrocinador.php">
+    <a href="../../index.php">Voltar para o inicio</a>
+    <h1>Cadastrar Patrocinador Material</h1>
+    <form method="POST" action="PatrocinadorMaterial.php">
     <input type="varchar" name="cpf" id="nome" placeholder="Digite o cpf" required><br><br>
     <input type="text" name="nome" id="nome" placeholder="Digite o nome" required><br><br>
-    <input type="int" name="contribuicao" id="nome" placeholder="Digite a quantia de contribuição" required><br><br>
-    <input type="int" name="id_torneio" id="nome" placeholder="Digite o ID do torneio" required><br><br>
-
+    <input type="text" name="tipo" id="nome" placeholder="Digite o tipo de matérial/objeto" required><br><br>
+    <label>Digite a data que foi fornecido: </label>
+        <input type="date" name="Data" id="nome" placeholder="Digite a data que foi fornecido" required><br><br>
+        <input type="text" name="local_guardado" id="nome" placeholder="Digite o local onde foi guardado" required><br><br>
+        <input type="int" name="id_torneio" id="nome" placeholder="Digite o ID do torneio" required><br><br>
 
         <input type="submit" class="btn btn-outline-primary" id="exampleFormControlInput1" name="BotaoEnviar" value="Enviar">
     </form>
@@ -28,11 +30,13 @@
 <?php
     if( isset($_POST['BotaoEnviar']) ){
 
-    $cpf = $_POST["cpf"];
     $nome = $_POST["nome"];
-    $contribuicao = $_POST["contribuicao"];
+    $cpf = $_POST["cpf"];
+    $Data = $_POST["Data"];
+    $tipo = $_POST["tipo"];
+    $local_guardado = $_POST["local_guardado"];
     $id_torneio = $_POST["id_torneio"];
-
+    
     $buscar_id = "SELECT * from torneio where id_torneio = '$id_torneio' ";
     $verificar_busca = $pdo->prepare($buscar_id);
     $verificar_busca->execute();
@@ -41,18 +45,18 @@
     if( $numRegistros == 0){
         //Se não achou no banco de dados o ID do torneio fornecido
         echo "<script>alert('ID de torneio não encontrado');</script>";
-    else{
+    }else{
         //Se achou ele adiciona
-        $query_patrocinador = "INSERT INTO patrocinador (cpf, nome, contribuiçao, id_torneio ) VALUES ('$cpf', '$nome', '$contribuicao', '$id_torneio')";
+        $query_patrocinador = "INSERT INTO patrocinadormaterial (cpf, nome, tipo, dt_aquisicao, local_guardado, id_torneio ) VALUES ('$cpf', '$nome', '$tipo', '$Data', '$local_guardado', '$id_torneio')";
         $cad_patrocinador = $pdo->prepare($query_patrocinador);
         $cad_patrocinador->execute();
     }
 
     if( $cad_patrocinador->rowCount() ){
         //se conseguiu cadastrar
-        echo "<script>alert('Patrocinador cadastrado!');</script>";
+        echo "<script>alert('Patrocinador material cadastrado!');</script>";
     }else{
-        echo "<script>alert('Erro: Patrocinador não cadastrado!');</script>";
+        echo "<script>alert('Erro: Patrocinador material não cadastrado!');</script>";
     }
 
     }

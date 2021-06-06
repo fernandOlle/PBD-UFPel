@@ -1,5 +1,5 @@
 <?php
-    include("../Conexao.php");
+    include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <title>Cadastrar Dias</title>
 </head>
 <body>
-    <a href="../index.php">Voltar para o inicio</a>
+    <a href="../../index.php">Voltar para o inicio</a>
     <h1>Cadastrar Dias</h1>
     <form method="POST" action="Dias.php">
     <label>Digite a data de inicio: </label>

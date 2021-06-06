@@ -1,5 +1,5 @@
 <?php
-    include("../Conexao.php");
+    include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <title>Cadastrar Ingresso</title>
 </head>
 <body>
-    <a href="../index.php">Voltar para o inicio</a>
+    <a href="../../index.php">Voltar para o inicio</a>
     <h1>Cadastrar Ingresso</h1>
     <form method="POST" action="Ingresso.php">
     <input type="int" name="valor" id="nome" placeholder="Digite o valor do ingresso" required><br><br>

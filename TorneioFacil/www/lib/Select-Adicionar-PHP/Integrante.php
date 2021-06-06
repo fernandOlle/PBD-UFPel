@@ -1,5 +1,5 @@
 <?php
-    include("../Conexao.php");
+    include("../../modulos/Conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <title>Cadastrar Integrante</title>
 </head>
 <body>
-    <a href="../index.php">Voltar para o inicio</a>
+    <a href="../../index.php">Voltar para o inicio</a>
     <h1>Cadastrar Integrante</h1>
     <form method="POST" action="Integrante.php">
     <input type="varchar" name="cpf" id="nome" placeholder="Digite o cpf" required><br><br>
