@@ -8,14 +8,14 @@ body{
 }
 
 *{
-    color: lavender;
+    color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 h1 {
     font-size: 50px;
     position: relative;
-    color: lavender;
+    color: black;
     transition-duration: 1.0s;
 }
 

@@ -20,7 +20,7 @@
     <div class= "panel">
         <center>
             <h1>
-                <a href= "https://github.com/fernandOlle/PBD-UFPel"><img src="pbdlogo.png" class= "seila" width= auto; height= 220px;></a>
+                <a href= "https://github.com/fernandOlle/PBD-UFPel"><img src="pbdlogotipo.png" class= "seila" width= auto; height= 220px;></a>
             </h1>
         </center>
     </div>
