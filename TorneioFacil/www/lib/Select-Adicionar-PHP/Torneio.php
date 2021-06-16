@@ -5,7 +5,7 @@
     $resp_teste->execute();
     ob_start();
     if($resp_teste->rowCount() != 0){
-        echo "<script>alert('ERRORS mto erros msm cara');</script>";
+        echo "<script>alert('ERRO... Torneio já existe!');</script>";
         header("refresh: 0; url= /index.php");
         exit;
     }
