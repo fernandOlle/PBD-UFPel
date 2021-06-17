@@ -3,10 +3,13 @@
     $teste = "SELECT * FROM torneio";
     $resp_teste = $pdo->prepare($teste);
     $resp_teste->execute();
+    ob_start();
     if($resp_teste->rowCount() != 0){
-        //echo "<script>alert('ERRORS mto erros msm cara');</script>";
-        exit(header('Location: /index.php'));
+        echo "<script>alert('ERRO... Torneio já existe!');</script>";
+        header("refresh: 0; url= /index.php");
+        exit;
     }
+    ob_end_flush();
 
 ?>
 
