@@ -73,10 +73,11 @@ if( isset($_POST['Testando']) ){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <title>Listar</title>
 </head>
 <body>
-<a href="../index.php">Voltar para o inicio</a>
+<center><a href="../index.php" class= "button">Voltar para o inicio</a>
 <form method="POST" style="width:25%" action="Select_Listar.php">
   <select class="form-select" aria-label="Default select example" name="Testando">
     <option selected>Selecione um banco para listar</option>
